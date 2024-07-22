@@ -1,18 +1,25 @@
 Attack Simulation
+Attack Details
+Contract Instance:
 
-Building Interaction:
+Directly connects to a deployed instance of HackMeIfYouCan using its known address, bypassing the need for deployment within the script.
+Building Attack:
 
-Currently commented out but intended to demonstrate how an auxiliary contract (BuildingArg) could be used to manipulate or interact with HackMeIfYouCan.
-Coin Flip Prediction:
+Utilizes the BuildingArg contract to manipulate outcomes in the HackMeIfYouCan contract, specifically targeting the goTo function.
+Predictive Flip:
 
-Calculates a guess based on the last mined block's hash and a predefined FACTOR, attempting to predict the outcome of a coin flip defined in HackMeIfYouCan.
-Uses this prediction to call the flip() function, demonstrating an exploit where block information is used to gain an advantage in contract interactions.
-Password Extraction and Usage:
+Calculates and predicts outcomes of the flip function based on the last block hash, exploiting predictable randomness in the contract's logic.
+Password Extraction and Use:
 
-Utilizes Foundry's vm.load() to directly access contract storage, extracting a supposed password at a specific storage slot.
-Submits this password using the sendPassword() function, showing how private data might be leaked or improperly protected within a contract.
-Displaying Marks:
+Extracts a password directly from the smart contract's storage using Foundry's vm.load feature, which allows reading from specific storage slots of a contract.
+This password is then used to access or manipulate secure functions within HackMeIfYouCan.
+Additional Exploits:
 
+Demonstrates various other exploit strategies including:
+Adding Points: Manipulates score or point-related functions.
+Contributions: Small Ether contributions are made to test the contract's response to financial transactions.
+Key Usage: Extracts and uses keys from contract storage for authorization within the contract.
+Token Transfer: Tests the transfer function to manipulate token balances unlawfully.
 Retrieves and logs the marks associated with the attacker's address using getMarks(), showcasing how state changes are tracked within the contract based on interactions.
 
 
